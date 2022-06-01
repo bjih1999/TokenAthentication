@@ -1,13 +1,17 @@
 package me.jihyun.tokenlogin.member.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import me.jihyun.tokenlogin.member.Member;
 
-@AllArgsConstructor
 @Getter
 public class MemberVO {
 
-    private String id;
+    private Long id;
 
     private String userId;
+
+    public MemberVO(Member member) {
+        this.id = member.getId();
+        this.userId = member.getUserId();
+    }
 }

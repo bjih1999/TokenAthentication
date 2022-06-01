@@ -13,19 +13,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Member {
 
-    public Member(String userId, String password) {
-        this.userId = userId;
-        this.password = password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setAuthToken(AuthToken authToken) {
-        this.authToken = authToken;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -43,4 +30,22 @@ public class Member {
     @OneToOne
     @JoinColumn(name = "auth_token_id")
     private AuthToken authToken;
+
+    public Member(String userId, String password, String username) {
+        this.userId = userId;
+        this.password = password;
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setAuthToken(AuthToken authToken) {
+        this.authToken = authToken;
+    }
 }
