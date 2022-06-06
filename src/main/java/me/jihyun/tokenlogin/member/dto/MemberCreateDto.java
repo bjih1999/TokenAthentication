@@ -2,6 +2,7 @@ package me.jihyun.tokenlogin.member.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import me.jihyun.tokenlogin.member.Role;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -17,4 +18,6 @@ public class MemberCreateDto {
 
     @NotEmpty
     private String username;
+
+    private Role role;
 }

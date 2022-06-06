@@ -31,10 +31,14 @@ public class Member {
     @JoinColumn(name = "auth_token_id")
     private AuthToken authToken;
 
-    public Member(String userId, String password, String username) {
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public Member(String userId, String password, String username, Role role) {
         this.userId = userId;
         this.password = password;
         this.username = username;
+        this.role = role;
     }
 
     public void setPassword(String password) {

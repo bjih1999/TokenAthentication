@@ -17,7 +17,9 @@ public class MemberServiceImpl implements MemberService {
     public MemberVO create(MemberCreateDto memberCreateDto) {
         Member member = new Member(memberCreateDto.getUserId(),
                 memberCreateDto.getPassword(),
-                memberCreateDto.getUsername());
+                memberCreateDto.getUsername(),
+                memberCreateDto.getRole()
+        );
         member = memberRepository.save(member);
         return new MemberVO(member);
     }
