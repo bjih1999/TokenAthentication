@@ -2,7 +2,9 @@ package me.jihyun.tokenlogin.auth;
 
 import lombok.RequiredArgsConstructor;
 import me.jihyun.tokenlogin.config.AppProperties;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -22,8 +24,12 @@ public class AccessTokenAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String accessToken = getJwtFromRequest(request);
-        if (!accessToken.isEmpty() && jwtTokenProvider.verifyToken(accessToken)) {
+        if (StringUtils.hasText(accessToken) && jwtTokenProvider.verifyToken(accessToken)) {
             String userId = jwtTokenProvider.getUserId(accessToken);
+
+            if (StringUtils.hasText(userId)) {
+                UserDetails =
+            }
         }
     }
 
